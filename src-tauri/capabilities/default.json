@@ -1,0 +1,6 @@
+{
+  "identifier": "default",
+  "description": "主窗口默认能力：仅核心权限，无插件访问",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}

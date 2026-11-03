@@ -1,0 +1,26 @@
+[package]
+name = "projection-switcher"
+version = "0.1.0"
+description = "投影模式一键切换工具（仅电脑屏幕 ⇄ 仅第二屏幕）"
+edition = "2021"
+
+[lib]
+name = "projection_switcher_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-autostart = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["time"] }
+windows-sys = { version = "0.60", features = ["Win32_Foundation", "Win32_Graphics_Gdi", "Win32_Devices_Display"] }
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
